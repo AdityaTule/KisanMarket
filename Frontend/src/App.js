@@ -16,7 +16,7 @@ function App() {
 
   // Fetch products from server
   const fetchProducts = () => {
-    fetch('http://127.0.0.1:5000/api/products')
+    fetch('https://kisan-market-api.onrender.com')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error("Server not found. Is app.py running?"));
@@ -30,7 +30,7 @@ function App() {
     e.preventDefault();
     if (!loginData.name || !loginData.phone) return alert("Please enter Name and Phone!");
 
-    fetch('http://127.0.0.1:5000/api/login', {
+    fetch('https://kisan-market-api.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginData)
@@ -51,7 +51,7 @@ function App() {
         farmer_phone: user.phone 
     };
 
-    fetch('http://127.0.0.1:5000/api/products', {
+    fetch('https://kisan-market-api.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(finalData)
